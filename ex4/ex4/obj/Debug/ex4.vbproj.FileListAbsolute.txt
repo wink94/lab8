@@ -1,0 +1,11 @@
+F:\2nd sem\VB.Net\151019V_Lab8\ex4\ex4\bin\Debug\ex4.exe.config
+F:\2nd sem\VB.Net\151019V_Lab8\ex4\ex4\bin\Debug\ex4.exe
+F:\2nd sem\VB.Net\151019V_Lab8\ex4\ex4\bin\Debug\ex4.pdb
+F:\2nd sem\VB.Net\151019V_Lab8\ex4\ex4\bin\Debug\ex4.xml
+F:\2nd sem\VB.Net\151019V_Lab8\ex4\ex4\obj\Debug\ex4.vbprojResolveAssemblyReference.cache
+F:\2nd sem\VB.Net\151019V_Lab8\ex4\ex4\obj\Debug\ex4.Form1.resources
+F:\2nd sem\VB.Net\151019V_Lab8\ex4\ex4\obj\Debug\ex4.Resources.resources
+F:\2nd sem\VB.Net\151019V_Lab8\ex4\ex4\obj\Debug\ex4.vbproj.GenerateResource.Cache
+F:\2nd sem\VB.Net\151019V_Lab8\ex4\ex4\obj\Debug\ex4.exe
+F:\2nd sem\VB.Net\151019V_Lab8\ex4\ex4\obj\Debug\ex4.xml
+F:\2nd sem\VB.Net\151019V_Lab8\ex4\ex4\obj\Debug\ex4.pdb
