@@ -68,7 +68,9 @@ Public Class Form1
         End If
 
         Array.Sort(arr)
+
         Dim sw As StreamWriter = File.CreateText("newfile.txt")
+
         For Each item As String In arr
 
             If String.IsNullOrEmpty(item) <> True Then
@@ -76,14 +78,11 @@ Public Class Form1
             End If
 
         Next
+
         sw.Close()
     End Sub
 
-    Sub sortNwrite(ByRef array() As String)
 
-
-
-    End Sub
 
 
 End Class
