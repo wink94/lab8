@@ -1,31 +1,42 @@
 ﻿Imports System.IO
 
+Structure Account
+    Public accNum As Integer
+    Public name As String
+    Public balance As Integer
+
+    Public Function isNull() As Boolean
+
+    End Function
+
+End Structure
+
 Public Class Form1
+
+    Private arrSize As Integer = 5
+    Private accntArray(arrSize) As Account
+
+    Private tempArr() As String
+
+
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        Dim acc As Acc2 = New Acc2
+        'Dim acc As Account_Change = New Account_Change
 
-        acc.readAccFile()
-        acc.readTRANSFile()
-        acc.calculateAndWrite()
+        readAccFile()
+        readTRANSFileAndWrite()
+        Write()
 
 
     End Sub
-End Class
-
-Class Acc
-    Public accNum As Integer
-    Public name As String
-    Public bal As Integer
-End Class
+    'End Class
 
 
 
-Class Acc2
-    Private arrSize As Integer = 10
-    Public accntArray(arrSize) As Acc
 
-    Private tempArr() As String
+
+    'Class Account_Change
+
 
 
     Sub readAccFile()
@@ -36,17 +47,18 @@ Class Acc2
 
 
         If File.Exists("myfile.txt") Then
+
             Dim sr As StreamReader = File.OpenText("myfile.txt")
 
 
 
             While sr.Peek <> -1
                 tempArr = Split(sr.ReadLine(), " ")
-                accntArray(count) = New Acc()
+                accntArray(count) = New Account()
 
                 accntArray(count).accNum = tempArr(0)
                 accntArray(count).name = tempArr(1)
-                accntArray(count).bal = tempArr(2)
+                accntArray(count).balance = tempArr(2)
                 count += 1
 
                 If count = arrSize Then
@@ -57,10 +69,17 @@ Class Acc2
             End While
 
             sr.Close()
+
+        Else
+            MessageBox.Show("File doesnt exist")
+
+
         End If
+
+
     End Sub
 
-    Sub readTRANSFile()
+    Sub readTRANSFileAndWrite()
 
 
 
@@ -73,20 +92,23 @@ Class Acc2
         If File.Exists("trans.txt") And File.Exists("myfile.txt") Then
 
 
-            For Each acc As Acc In accntArray
+            For count = 0 To accntArray.GetUpperBound(0)
                 deposit = 0
                 withd = 0
 
-                If acc Is Nothing Then
+                If accntArray(count).name Is Nothing Then
 
                     Exit For
+
                 End If
+
                 Dim sr As StreamReader = File.OpenText("trans.txt")
+
                 While sr.Peek <> -1
 
                     tempArr = Split(sr.ReadLine(), " ")
 
-                    If acc.accNum = tempArr(0) Then
+                    If accntArray(count).accNum = tempArr(0) Then
                         deposit += tempArr(1)
                         withd += tempArr(2)
                     Else
@@ -96,31 +118,36 @@ Class Acc2
 
                 End While
 
-                acc.bal += deposit - withd
+                accntArray(count).balance += (deposit - withd)
                 sr.Close()
+
             Next
 
         End If
 
     End Sub
 
-    Sub calculateAndWrite()
+    Sub Write()
 
-        If File.Exists("temp.txt") Then
+        If File.Exists("myfile.txt") Then
 
             File.Delete("temp.txt")
 
             Dim sw As StreamWriter = File.AppendText("temp.txt")
 
-            For Each item As Acc In accntArray
-                If item Is Nothing Then
+
+            For count As Integer = 0 To accntArray.GetUpperBound(0)
+
+                If accntArray(count).name Is Nothing Then
                     Exit For
                 Else
-                    sw.WriteLine(CStr(item.accNum) + " " + item.name + " " + CStr(item.bal))
+                    sw.WriteLine(CStr(accntArray(count).accNum) + " " + accntArray(count).name + " " + CStr(accntArray(count).balance))
 
                 End If
 
             Next
+
+            sw.Close()
 
             File.Delete("myfile.txt")
             File.Move("temp.txt", "myfile.txt")
