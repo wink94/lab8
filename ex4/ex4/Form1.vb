@@ -1,13 +1,11 @@
 ﻿Imports System.IO
 
 Structure Account
+
     Public accNum As Integer
     Public name As String
     Public balance As Integer
 
-    Public Function isNull() As Boolean
-
-    End Function
 
 End Structure
 
@@ -34,8 +32,6 @@ Public Class Form1
     Sub readAccFile()
 
         Dim count As Integer = 0
-
-
 
 
         If File.Exists("myfile.txt") Then
