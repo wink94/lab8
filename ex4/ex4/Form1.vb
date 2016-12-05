@@ -21,7 +21,7 @@ Public Class Form1
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
 
-        'Dim acc As Account_Change = New Account_Change
+
 
         readAccFile()
         readTRANSFileAndWrite()
@@ -29,14 +29,6 @@ Public Class Form1
 
 
     End Sub
-    'End Class
-
-
-
-
-
-    'Class Account_Change
-
 
 
     Sub readAccFile()
