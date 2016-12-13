@@ -1,7 +1,7 @@
-1 asdasd 13170
-2 sfsdf 53426
-3 sdfs 14922
-5 sdfsd 6723
+1 asdasd 13840
+2 sfsdf 101207
+3 sdfs 23283
+5 sdfsd 6881
 6 sdfsd 6565
 7 sdfsd 6565
 8 sdfsd 6565
